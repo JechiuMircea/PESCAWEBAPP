@@ -1,0 +1,16 @@
+nome_comune,nome_scientifico,famiglia,habitat,taglia_min,taglia_max,peso_max,periodo_riproduzione,note
+Trota,Salmo trutta,Salmonidae,Acque dolci fredde e ossigenate,20.0,80.0,10.0,Novembre-Dicembre,Specie molto apprezzata per la pesca sportiva
+Salmone,Salmo salar,Salmonidae,Mari e fiumi freddi,50.0,150.0,40.0,Settembre-Novembre,"Specie migratoria, molto apprezzata"
+Carpa,Cyprinus carpio,Cyprinidae,"Laghi, stagni e fiumi a corso lento",30.0,120.0,40.0,Maggio-Giugno,Specie resistente e adattabile
+Tinca,Tinca tinca,Cyprinidae,Laghi e stagni con vegetazione,20.0,70.0,8.0,Maggio-Luglio,"Specie molto resistente, sopravvive in acque povere di ossigeno"
+Scardola,Scardinius erythrophthalmus,Cyprinidae,Laghi e fiumi a corso lento,15.0,40.0,1.5,Aprile-Giugno,"Specie gregaria, forma banchi numerosi"
+Persico,Perca fluviatilis,Percidae,Laghi e fiumi con acque limpide,15.0,50.0,3.0,Aprile-Maggio,Predatore di piccoli pesci
+Persico Sole,Lepomis gibbosus,Centrarchidae,Laghi e stagni con vegetazione,10.0,30.0,1.0,Maggio-Giugno,"Specie introdotta dall'America, molto colorata"
+Luccio,Esox lucius,Esocidae,Laghi e fiumi con vegetazione acquatica,40.0,150.0,25.0,Febbraio-Marzo,"Predatore aggressivo, molto apprezzato dai pescatori"
+Anguilla,Anguilla anguilla,Anguillidae,"Fiumi, laghi e acque costiere",30.0,100.0,6.0,Settembre-Ottobre,"Specie migratoria, nasce nel Mar dei Sargassi"
+Siluro,Silurus glanis,Siluridae,Fiumi e laghi grandi,50.0,300.0,150.0,Maggio-Giugno,Il più grande pesce d'acqua dolce d'Europa
+Storione,Acipenser sturio,Acipenseridae,Mari e fiumi,100.0,500.0,400.0,Aprile-Maggio,"Specie protetta, molto rara in natura"
+Branzino,Dicentrarchus labrax,Moronidae,Mari e lagune costiere,25.0,100.0,12.0,Dicembre-Marzo,Specie molto apprezzata in cucina
+Orata,Sparus aurata,Sparidae,Mari e lagune costiere,20.0,70.0,8.0,Ottobre-Dicembre,"Specie ermafrodita, cambia sesso durante la vita"
+Sgombro,Scomber scombrus,Scombridae,Mari aperti,20.0,50.0,3.0,Maggio-Luglio,"Specie pelagica, forma grandi banchi"
+Tonno,Thunnus thynnus,Scombridae,Mari aperti e profondi,100.0,400.0,600.0,Giugno-Agosto,"Specie migratoria, molto apprezzata per la pesca sportiva"
