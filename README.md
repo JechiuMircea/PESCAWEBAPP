@@ -34,4 +34,3 @@ Siccome sto facendo un corso su Aws restart potremmo sfruttare la potenza di aws
 
 Ho già un dominio da sfruttare che ho acquistato su porckbun e sfrutteremo anche quello.
 
-Prima ddi iniziare ti chiedo di farmi una ricerca approfondita per vedere come strutturare al meglio questo progetto magari cercando le idee vincenti sul web. 
