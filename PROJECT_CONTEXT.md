@@ -61,7 +61,7 @@ Applicazione web per l'identificazione e catalogazione delle specie ittiche, con
    - Stabilità
 
 ## Contatti e Risorse
-- Repository: [URL - DA CREARE SU GITHUB]
+- Repository: https://github.com/JechiuMircea/PESCAWEBAPP
 - Documentazione: [URL]
 - AWS Account: [Configurato]
 - Dominio: [Configurato]
@@ -69,8 +69,8 @@ Applicazione web per l'identificazione e catalogazione delle specie ittiche, con
 ## Integrazione GitHub
 - ✅ GitHub collegato a Cursor
 - ✅ Username: JechiuMircea
-- ✅ Repository: DA CREARE
-- 🔄 Prossimo step: Creare repository e fare primo commit
+- ✅ Repository: https://github.com/JechiuMircea/PESCAWEBAPP
+- ✅ Primo commit completato con backend funzionante
 
 ## Endpoint Funzionanti
 - **Server**: http://127.0.0.1:8080
