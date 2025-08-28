@@ -73,6 +73,19 @@ git push origin main
 pip install -r requirements.txt
 python -m uvicorn app.main:app --reload
 ```
+
+### 2025-08-28 - Setup
+**Operazioni Eseguite:**
+1. **Setup** - Configurazione ambiente di sviluppo
+   - Setup completo ambiente Python e dipendenze
+2. **File Modificati:**
+   - ✅ `requirements.txt`
+   - ✅ `backend/app/main.py`
+3. **Comandi Eseguiti:**
+```bash
+pip install -r requirements.txt
+python -m uvicorn app.main:app --reload
+```
 ## 🎯 Prossimi Step Immediati
 
 ### Priorità Alta (Questa Settimana)

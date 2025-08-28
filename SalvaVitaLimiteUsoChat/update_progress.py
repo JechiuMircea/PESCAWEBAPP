@@ -11,9 +11,9 @@ from pathlib import Path
 
 class ProgressTracker:
     def __init__(self):
-        self.project_root = Path(__file__).parent
-        self.progress_file = self.project_root / "PROJECT_PROGRESS.md"
-        self.milestones_file = self.project_root / "PROJECT_MILESTONES.md"
+        self.project_root = Path(__file__).parent.parent  # Torna alla root del progetto
+        self.progress_file = self.project_root / "SalvaVitaLimiteUsoChat" / "PROJECT_PROGRESS.md"
+        self.milestones_file = self.project_root / "SalvaVitaLimiteUsoChat" / "PROJECT_MILESTONES.md"
         self.current_date = datetime.datetime.now().strftime("%Y-%m-%d")
         
     def add_operation(self, operation_type, description, details=None, files_modified=None, commands_executed=None):

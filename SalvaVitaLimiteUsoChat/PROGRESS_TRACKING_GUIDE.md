@@ -45,12 +45,12 @@ Questo sistema risolve il problema del **context limit** nelle chat, permettendo
 
 1. **Esegui lo script** per aggiornare automaticamente:
    ```bash
-   python update_progress.py
+   python SalvaVitaLimiteUsoChat/update_progress.py
    ```
 
 2. **Oppure usa le funzioni direttamente**:
    ```python
-   from update_progress import ProgressTracker
+   from SalvaVitaLimiteUsoChat.update_progress import ProgressTracker
    
    tracker = ProgressTracker()
    tracker.add_operation(
@@ -185,7 +185,7 @@ Puoi integrare il tracking con Git hooks per aggiornamento automatico:
 ```bash
 # .git/hooks/post-commit
 #!/bin/bash
-python update_progress.py
+python SalvaVitaLimiteUsoChat/update_progress.py
 ```
 
 ### **Integrazione con CI/CD**
