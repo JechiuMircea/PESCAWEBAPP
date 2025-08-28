@@ -15,5 +15,14 @@ Siccome sto facendo un corso su Aws restart potremmo sfruttare la potenza di aws
 ## Dominio
 Ho già un dominio da sfruttare che ho acquistato su porckbun e sfrutteremo anche quello.
 
+## Requisiti di Business
+- **Identificazione automatica** di specie ittiche tramite foto
+- **Database completo** con milioni di specie catalogate
+- **Informazioni dettagliate** su abitudini, alimentazione, habitat
+- **Ricerca avanzata** per filtrare e trovare specie specifiche
+- **Interfaccia moderna** e user-friendly
+- **Scalabilità** per gestire utenti multipli
+- **Integrazione mobile** futura
+
 ## Prossimi Passi
 Prima ddi iniziare ti chiedo di farmi una ricerca approfondita per vedere come strutturare al meglio questo progetto magari cercando le idee vincenti sul web. 

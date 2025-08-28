@@ -31,8 +31,8 @@ Applicazione web per l'identificazione e catalogazione delle specie ittiche, con
 4. Autenticazione utenti
 
 ## File di Documentazione
-- `PROJECT_SPECIFICATIONS.md`: Requisiti e specifiche
-- `TECHNICAL_STACK.md`: Stack tecnologico dettagliato
+- `PROJECT_SPECIFICATIONS.md`: Requisiti e specifiche di business
+- `TECHNICAL_STACK.md`: Stack tecnologico dettagliato e strategia database
 - `PROJECT_TIMELINE.md`: Timeline di sviluppo
 - `TIMELINE_COMPARISON.md`: Analisi comparativa timeline
 
@@ -46,6 +46,8 @@ Applicazione web per l'identificazione e catalogazione delle specie ittiche, con
 - Focus su UX/UI moderna
 - Integrazione AWS per scalabilità
 - Approccio MVP-first con iterazioni
+- **Strategia Database**: Approccio graduale locale → pre-produzione → produzione
+- **Fonti Dati**: Integrazione con database pubblici (FishBase, GBIF, iNaturalist, NOAA)
 
 ## Decisioni Chiave
 1. Stack tecnologico scelto per:
