@@ -24,5 +24,3 @@ Ho già un dominio da sfruttare che ho acquistato su porckbun e sfrutteremo anch
 - **Scalabilità** per gestire utenti multipli
 - **Integrazione mobile** futura
 
-## Prossimi Passi
-Prima ddi iniziare ti chiedo di farmi una ricerca approfondita per vedere come strutturare al meglio questo progetto magari cercando le idee vincenti sul web. 
