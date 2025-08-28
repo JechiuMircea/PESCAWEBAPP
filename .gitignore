@@ -1,0 +1,44 @@
+# Environment
+venv/
+.env
+.env.*
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.egg-info/
+.dist/
+.build/
+.mypy_cache/
+.pytest_cache/
+
+# Node / Frontend
+node_modules/
+build/
+dist/
+.cache/
+.next/
+coverage/
+
+# OS / Editors
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+.idea/
+.vscode/
+*.swp
+
+# AWS / Artifacts
+.aws/
+*.pem
+*.key
+
+# Misc
+reports/
+.tmp/
+
