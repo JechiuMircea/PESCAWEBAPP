@@ -2,35 +2,36 @@
 
 ```
 PESCAWEBAPP/
+├── app/
+│   ├── __pycache__/
+│   │   ├── __init__.cpython-312.pyc
+│   │   ├── database.cpython-312.pyc
+│   │   ├── main.cpython-312.pyc
+│   │   └── models.cpython-312.pyc
+│   ├── routers/
+│   │   ├── __pycache__/
+│   │   │   ├── __init__.cpython-312.pyc
+│   │   │   ├── health.cpython-312.pyc
+│   │   │   ├── identificazioni.cpython-312.pyc
+│   │   │   └── specie.cpython-312.pyc
+│   │   ├── __init__.py
+│   │   ├── health.py
+│   │   ├── identificazioni.py
+│   │   └── specie.py
+│   ├── __init__.py
+│   ├── database.py
+│   ├── fishbase_integration.py
+│   ├── main.py
+│   └── models.py
 ├── backend/
 │   ├── __pycache__/
 │   │   ├── __init__.cpython-312.pyc
 │   │   └── test_app.cpython-312.pyc
-│   ├── app/
-│   │   ├── __pycache__/
-│   │   │   ├── __init__.cpython-312.pyc
-│   │   │   ├── database.cpython-312.pyc
-│   │   │   ├── main.cpython-312.pyc
-│   │   │   └── models.cpython-312.pyc
-│   │   ├── routers/
-│   │   │   ├── __pycache__/
-│   │   │   │   ├── __init__.cpython-312.pyc
-│   │   │   │   ├── health.cpython-312.pyc
-│   │   │   │   ├── identificazioni.cpython-312.pyc
-│   │   │   │   └── specie.cpython-312.pyc
-│   │   │   ├── __init__.py
-│   │   │   ├── health.py
-│   │   │   ├── identificazioni.py
-│   │   │   └── specie.py
-│   │   ├── __init__.py
-│   │   ├── database.py
-│   │   ├── fishbase_integration.py
-│   │   ├── main.py
-│   │   └── models.py
 │   ├── __init__.py
 │   ├── fishbase_data.csv
 │   ├── pesca_webapp.db
 │   ├── requirements.txt
+│   ├── requirements-dev.txt
 │   ├── test_api.py
 │   ├── test_app.py
 │   └── verify_database.py
