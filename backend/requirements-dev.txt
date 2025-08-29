@@ -1,0 +1,10 @@
+# Development dependencies
+# Include production requirements
+-r requirements.txt
+
+# Code quality and organization tools
+flake8
+isort
+black
+pre-commit
+cookiecutter
