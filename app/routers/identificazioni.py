@@ -5,8 +5,12 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 
 from app.database import IdentificazioneSpecieDB, SpecieItticaDB, get_db
-from app.models import (IdentificazioneSpecie, IdentificazioneSpecieCreate,
-                      IdentificazioneSpecieUpdate, SpecieStatus)
+from app.models import (
+    IdentificazioneSpecie,
+    IdentificazioneSpecieCreate,
+    IdentificazioneSpecieUpdate,
+    SpecieStatus,
+)
 
 router = APIRouter(prefix="/identificazioni", tags=["identificazioni"])
 
