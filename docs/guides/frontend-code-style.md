@@ -168,8 +168,4 @@ npm run quality:fix
 
 **📝 Nota:** Questa guida è viva e deve essere aggiornata quando vengono modificate le regole o aggiunti nuovi strumenti al progetto.
 
----
 
-## ⚠️ **NOTA IMPORTANTE - GITHUB**
-
-**Branch `main` è protetta su GitHub** - Le modifiche devono essere fatte attraverso Pull Request da branch feature.

@@ -110,8 +110,4 @@ uvicorn app.main:app --host 127.0.0.1 --port 8080
 - ✅ Hot reload frontend funzionante
 - ❌ Porta 8000 bloccata (usare 8080)
 
----
-
-## ⚠️ **NOTA IMPORTANTE - GITHUB**
-
-**Branch `main` è protetta su GitHub** - Le modifiche devono essere fatte attraverso Pull Request da branch feature. 
+ 

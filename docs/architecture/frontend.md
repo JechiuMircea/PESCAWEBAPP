@@ -182,8 +182,4 @@ Frontend → API Service → Backend → Database → Response → UI Update
 
 **Prossimo**: [Frontend Development Guide](../guides/frontend-development.md)
 
----
 
-## ⚠️ **NOTA IMPORTANTE - GITHUB**
-
-**Branch `main` è protetta su GitHub** - Le modifiche devono essere fatte attraverso Pull Request da branch feature.
