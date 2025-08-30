@@ -1,19 +1,20 @@
 /* Database Manager Component Styles */
 .database-manager {
-  max-width: 1200px;
+  max-width: min(90vw, 1400px);
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: clamp(1.5rem, 4vw, 2rem);
 }
 
 .manager-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: clamp(2rem, 6vw, 3rem);
 }
 
 .manager-header h2 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 6vw, 2.5rem);
   color: #1e293b;
-  margin-bottom: 1rem;
+  margin-bottom: clamp(0.8rem, 2vw, 1rem);
   background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -21,320 +22,173 @@
 }
 
 .manager-header p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: #64748b;
-  max-width: 600px;
+  max-width: min(700px, 85vw);
   margin: 0 auto;
   line-height: 1.6;
 }
 
-/* Database Status */
-.database-status {
-  margin-bottom: 3rem;
-}
-
-.database-status h3 {
-  font-size: 1.8rem;
-  color: #1e293b;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
+/* Status Grid */
 .status-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  gap: clamp(1rem, 3vw, 1.5rem);
+  margin-bottom: clamp(2rem, 6vw, 3rem);
 }
 
 .status-card {
   background: white;
-  border-radius: 16px;
-  padding: 2rem;
+  border-radius: clamp(16px, 4vw, 20px);
+  padding: clamp(1.5rem, 4vw, 2rem);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid #e2e8f0;
   transition: all 0.3s ease;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 1.5rem);
 }
 
 .status-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
-.status-indicator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+.status-icon {
+  font-size: clamp(2.5rem, 6vw, 3rem);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-.status-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-
-.status-dot.online {
-  background: #10b981;
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
-}
-
-.status-dot.offline {
-  background: #ef4444;
-  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
-}
-
-.status-text {
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-.status-card h4 {
-  font-size: 1.1rem;
+.status-content h3 {
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
   color: #64748b;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 clamp(0.4rem, 1vw, 0.5rem) 0;
   font-weight: 600;
 }
 
-.status-card p {
-  font-size: 1.2rem;
+.status-number {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 700;
   color: #1e293b;
   margin: 0;
-  font-weight: 600;
 }
 
-.record-count {
-  font-size: 2rem !important;
-  color: #3b82f6 !important;
-  font-weight: 700 !important;
+.status-label {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: #64748b;
+  margin: 0;
 }
 
-/* Database Operations */
-.database-operations {
-  margin-bottom: 3rem;
-}
-
-.database-operations h3 {
-  font-size: 1.8rem;
-  color: #1e293b;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
+/* Operations Grid */
 .operations-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: clamp(2rem, 6vw, 3rem);
 }
 
-.operation-button {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  color: #374151;
-  border: 2px solid #e2e8f0;
-  padding: 1.5rem 2rem;
-  border-radius: 16px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.operation-button:hover:not(:disabled) {
-  transform: translateY(-2px);
-  border-color: #3b82f6;
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
-}
-
-.operation-button:disabled {
-  background: #f1f5f9;
-  color: #94a3b8;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.operation-button.sync.syncing {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-  color: white;
-  border-color: #3b82f6;
-}
-
-.operation-button.sync.success {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: white;
-  border-color: #10b981;
-}
-
-/* Sync Status */
-.sync-status {
-  text-align: center;
-  padding: 2rem;
-  background: #f0f9ff;
-  border-radius: 16px;
-  border: 2px solid #0ea5e9;
-  margin-bottom: 1rem;
-}
-
-.sync-spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #e0f2fe;
-  border-top: 4px solid #0ea5e9;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 0 auto 1rem;
-}
-
-.sync-status p {
-  color: #0369a1;
-  font-weight: 600;
-  margin: 0;
-}
-
-.sync-success {
-  text-align: center;
-  padding: 2rem;
-  background: #f0fdf4;
-  border-radius: 16px;
-  border: 2px solid #22c55e;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.success-icon {
-  font-size: 1.5rem;
-}
-
-.sync-success p {
-  color: #15803d;
-  font-weight: 600;
-  margin: 0;
-}
-
-/* Operations History */
-.operations-history {
-  margin-bottom: 3rem;
-}
-
-.operations-history h3 {
-  font-size: 1.8rem;
-  color: #1e293b;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.no-operations {
-  text-align: center;
-  padding: 3rem;
-  background: #f8fafc;
-  border-radius: 20px;
-  border: 2px dashed #cbd5e1;
-  color: #64748b;
-  font-size: 1.1rem;
-}
-
-.operations-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.operation-item {
+.operation-card {
   background: white;
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  border-radius: clamp(16px, 4vw, 20px);
+  padding: clamp(1.5rem, 4vw, 2rem);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid #e2e8f0;
   transition: all 0.3s ease;
 }
 
-.operation-item:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.operation-item.completed {
-  border-left: 4px solid #10b981;
-}
-
-.operation-item.running {
-  border-left: 4px solid #3b82f6;
-}
-
-.operation-item.failed {
-  border-left: 4px solid #ef4444;
+.operation-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  border-color: #3b82f6;
 }
 
 .operation-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  flex-wrap: wrap;
+  gap: clamp(0.8rem, 2vw, 1rem);
 }
 
-.operation-type {
-  background: #f1f5f9;
-  color: #374151;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
+.operation-title {
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+  color: #1e293b;
+  margin: 0;
+  font-weight: 700;
 }
 
-.operation-time {
+.operation-description {
   color: #64748b;
-  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0 0 clamp(1rem, 3vw, 1.5rem) 0;
+  font-size: clamp(0.9rem, 2.2vw, 1rem);
 }
 
-.operation-progress {
+.operation-actions {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: clamp(0.8rem, 2vw, 1rem);
+  flex-wrap: wrap;
 }
 
-.progress-bar {
-  flex: 1;
-  height: 8px;
-  background: #e2e8f0;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #3b82f6 0%, #1d4ed8 100%);
-  transition: width 0.3s ease;
-}
-
-.progress-text {
-  font-weight: 600;
+.action-button {
+  background: #f8fafc;
   color: #374151;
-  min-width: 40px;
-}
-
-.operation-message {
-  color: #64748b;
-  margin: 0 0 1rem 0;
-  font-size: 0.95rem;
-}
-
-.operation-status {
-  text-align: right;
-}
-
-.status-badge {
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  border: 2px solid #e2e8f0;
+  padding: clamp(0.6rem, 1.5vw, 0.75rem) clamp(1.2rem, 3vw, 1.5rem);
+  border-radius: clamp(8px, 2vw, 10px);
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
   font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-button:hover {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.action-button.primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border-color: #3b82f6;
+}
+
+.action-button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.action-button.success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border-color: #10b981;
+}
+
+.action-button.success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+}
+
+.action-button.danger {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border-color: #ef4444;
+}
+
+.action-button.danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+}
+
+/* Status Badges */
+.status-badge {
+  padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.8rem, 2vw, 1rem);
+  border-radius: clamp(15px, 4vw, 20px);
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  font-weight: 600;
+  text-align: center;
 }
 
 .status-badge.pending {
@@ -342,7 +196,7 @@
   color: #92400e;
 }
 
-.status-badge.running {
+.status-badge.processing {
   background: #dbeafe;
   color: #1e40af;
 }
@@ -360,24 +214,24 @@
 /* FishBase Info */
 .fishbase-info {
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-  border-radius: 20px;
-  padding: 2.5rem;
+  border-radius: clamp(16px, 4vw, 20px);
+  padding: clamp(2rem, 5vw, 2.5rem);
   color: white;
   text-align: center;
 }
 
 .fishbase-info h3 {
-  font-size: 2rem;
-  margin: 0 0 1.5rem 0;
+  font-size: clamp(1.8rem, 4.5vw, 2rem);
+  margin: 0 0 clamp(1.2rem, 3vw, 1.5rem) 0;
   font-weight: 700;
 }
 
 .info-content p {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   line-height: 1.7;
-  margin: 0 0 2rem 0;
+  margin: 0 0 clamp(1.5rem, 4vw, 2rem) 0;
   opacity: 0.95;
-  max-width: 800px;
+  max-width: min(800px, 90vw);
   margin-left: auto;
   margin-right: auto;
 }
@@ -386,61 +240,15 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: clamp(0.8rem, 2vw, 1rem);
 }
 
 .stat {
   background: rgba(255, 255, 255, 0.2);
-  padding: 0.75rem 1.5rem;
-  border-radius: 25px;
+  padding: clamp(0.6rem, 1.5vw, 0.75rem) clamp(1.2rem, 3vw, 1.5rem);
+  border-radius: clamp(20px, 5vw, 25px);
   font-weight: 600;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* Animations */
-@keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.7; }
-  100% { opacity: 1; }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .database-manager {
-    padding: 1rem;
-  }
-  
-  .manager-header h2 {
-    font-size: 2rem;
-  }
-  
-  .status-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .operations-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .operation-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  
-  .fishbase-info {
-    padding: 2rem 1.5rem;
-  }
-  
-  .integration-stats {
-    flex-direction: column;
-    align-items: center;
-  }
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }

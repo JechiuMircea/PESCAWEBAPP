@@ -1,19 +1,20 @@
 /* Fish Identifier Component Styles */
 .fish-identifier {
-  max-width: 1200px;
+  max-width: min(90vw, 1400px);
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: clamp(1.5rem, 4vw, 2rem);
 }
 
 .identifier-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: clamp(2rem, 6vw, 3rem);
 }
 
 .identifier-header h2 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 6vw, 2.5rem);
   color: #1e293b;
-  margin-bottom: 1rem;
+  margin-bottom: clamp(0.8rem, 2vw, 1rem);
   background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -21,9 +22,9 @@
 }
 
 .identifier-header p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: #64748b;
-  max-width: 600px;
+  max-width: min(700px, 85vw);
   margin: 0 auto;
   line-height: 1.6;
 }
@@ -31,146 +32,140 @@
 /* Identification Form */
 .identification-form {
   background: white;
-  border-radius: 20px;
-  padding: 2.5rem;
+  border-radius: clamp(16px, 4vw, 20px);
+  padding: clamp(2rem, 5vw, 2.5rem);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid #e2e8f0;
-  margin-bottom: 3rem;
-}
-
-.form-section h3 {
-  font-size: 1.5rem;
-  color: #1e293b;
-  margin-bottom: 2rem;
-  text-align: center;
+  margin-bottom: clamp(2rem, 6vw, 3rem);
 }
 
 .form-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: clamp(1rem, 3vw, 1.5rem);
+  margin-bottom: clamp(1.2rem, 3vw, 1.5rem);
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: clamp(0.5rem, 1.5vw, 0.8rem);
 }
 
 .form-group label {
-  font-weight: 600;
+  font-size: clamp(0.9rem, 2.2vw, 1rem);
   color: #374151;
-  font-size: 0.95rem;
+  font-weight: 600;
 }
 
-.form-select {
-  padding: 0.75rem 1rem;
+.form-input,
+.form-select,
+.form-textarea {
+  padding: clamp(0.8rem, 2vw, 1rem) clamp(1rem, 2.5vw, 1.2rem);
   border: 2px solid #e2e8f0;
-  border-radius: 10px;
-  font-size: 1rem;
-  background: white;
-  cursor: pointer;
+  border-radius: clamp(8px, 2vw, 10px);
+  font-size: clamp(0.9rem, 2vw, 1rem);
   transition: all 0.3s ease;
+  background: #f9fafb;
 }
 
-.form-select:focus {
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
   outline: none;
   border-color: #3b82f6;
+  background: white;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-.form-select:hover {
-  border-color: #cbd5e1;
+.form-textarea {
+  resize: vertical;
+  min-height: clamp(80px, 15vw, 100px);
 }
 
-/* Search Actions */
-.search-actions {
+/* Upload Area */
+.upload-area {
+  border: 2px dashed #d1d5db;
+  border-radius: clamp(12px, 3vw, 16px);
+  padding: clamp(2rem, 6vw, 3rem);
   text-align: center;
-  margin-top: 2rem;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: clamp(1.5rem, 4vw, 2rem);
 }
 
-.search-button {
+.upload-area:hover {
+  border-color: #3b82f6;
+  background: #f0f9ff;
+}
+
+.upload-icon {
+  font-size: clamp(2.5rem, 8vw, 3rem);
+  color: #6b7280;
+  margin-bottom: clamp(0.8rem, 2vw, 1rem);
+  display: block;
+}
+
+.upload-text {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Submit Button */
+.submit-button {
   background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   color: white;
-  border: none;
-  padding: 1rem 2.5rem;
-  border-radius: 12px;
-  font-size: 1.1rem;
+  padding: clamp(1rem, 2.5vw, 1.2rem) clamp(2rem, 5vw, 2.5rem);
+  border-radius: clamp(10px, 2.5vw, 12px);
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  width: 100%;
+  max-width: clamp(300px, 50vw, 400px);
+  margin: 0 auto;
+  display: block;
 }
 
-.search-button:hover:not(:disabled) {
+.submit-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
 }
 
-.search-button:disabled {
-  background: #94a3b8;
+.submit-button:disabled {
+  opacity: 0.6;
   cursor: not-allowed;
   transform: none;
-  box-shadow: none;
 }
 
-.form-hint {
-  color: #64748b;
-  font-size: 0.9rem;
-  margin-top: 1rem;
-  font-style: italic;
-}
-
-/* Search Results */
-.search-results {
-  margin-top: 3rem;
-}
-
-.search-results h3 {
-  font-size: 1.8rem;
-  color: #1e293b;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.results-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.result-card {
+/* Results */
+.identification-results {
   background: white;
-  border-radius: 16px;
-  padding: 2rem;
+  border-radius: clamp(16px, 4vw, 20px);
+  padding: clamp(2rem, 5vw, 2.5rem);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid #e2e8f0;
-  transition: all 0.3s ease;
-}
-
-.result-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-  border-color: #3b82f6;
 }
 
 .result-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: clamp(1.5rem, 4vw, 2rem);
+  flex-wrap: wrap;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
 }
 
-.result-image {
-  font-size: 3rem;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+.species-info {
+  flex: 1;
 }
 
-.result-info h4 {
-  font-size: 1.4rem;
+.species-name {
+  font-size: clamp(1.5rem, 4vw, 1.8rem);
   color: #1e293b;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 clamp(0.4rem, 1vw, 0.5rem) 0;
   font-weight: 700;
 }
 
@@ -178,37 +173,29 @@
   font-style: italic;
   color: #64748b;
   margin: 0;
-  font-size: 1rem;
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
 }
 
 .match-score {
-  margin-left: auto;
-  text-align: right;
-}
-
-.score-label {
-  display: block;
-  font-size: 0.9rem;
-  color: #64748b;
-  margin-bottom: 0.25rem;
-}
-
-.score-value {
-  font-size: 1.5rem;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: clamp(0.5rem, 1.5vw, 0.8rem) clamp(1rem, 2.5vw, 1.2rem);
+  border-radius: clamp(20px, 5vw, 25px);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   font-weight: 700;
-  color: #10b981;
+  margin-left: clamp(1rem, 3vw, 1.5rem);
 }
 
 .result-description {
   color: #64748b;
   line-height: 1.6;
-  margin: 0 0 1.5rem 0;
-  font-size: 1rem;
+  margin: 0 0 clamp(1.2rem, 3vw, 1.5rem) 0;
+  font-size: clamp(0.9rem, 2.2vw, 1rem);
 }
 
 .result-actions {
   display: flex;
-  gap: 1rem;
+  gap: clamp(0.8rem, 2vw, 1rem);
   flex-wrap: wrap;
 }
 
@@ -216,9 +203,9 @@
   background: #f8fafc;
   color: #374151;
   border: 2px solid #e2e8f0;
-  padding: 0.75rem 1.5rem;
-  border-radius: 10px;
-  font-size: 0.9rem;
+  padding: clamp(0.6rem, 1.5vw, 0.75rem) clamp(1.2rem, 3vw, 1.5rem);
+  border-radius: clamp(8px, 2vw, 10px);
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -233,20 +220,20 @@
 /* Searching State */
 .searching-state {
   text-align: center;
-  padding: 3rem;
+  padding: clamp(2rem, 6vw, 3rem);
   background: #f8fafc;
-  border-radius: 20px;
+  border-radius: clamp(16px, 4vw, 20px);
   border: 2px dashed #cbd5e1;
 }
 
 .loading-spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #e2e8f0;
-  border-top: 4px solid #3b82f6;
+  width: clamp(35px, 8vw, 40px);
+  height: clamp(35px, 8vw, 40px);
+  border: clamp(3px, 0.8vw, 4px) solid #e2e8f0;
+  border-top: clamp(3px, 0.8vw, 4px) solid #3b82f6;
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  margin: 0 auto 1rem;
+  margin: 0 auto clamp(0.8rem, 2vw, 1rem);
 }
 
 @keyframes spin {
@@ -256,41 +243,6 @@
 
 .searching-state p {
   color: #64748b;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
   margin: 0;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .fish-identifier {
-    padding: 1rem;
-  }
-  
-  .identifier-header h2 {
-    font-size: 2rem;
-  }
-  
-  .identification-form {
-    padding: 1.5rem;
-  }
-  
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .result-header {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-  }
-  
-  .match-score {
-    margin-left: 0;
-    text-align: center;
-  }
-  
-  .result-actions {
-    justify-content: center;
-  }
 }

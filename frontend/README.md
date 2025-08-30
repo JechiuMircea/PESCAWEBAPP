@@ -1,6 +1,36 @@
-# React + TypeScript + Vite
+# Pesca WebApp - Frontend React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Applicazione per identificazione e gestione pesci con design responsive completo.**
+
+## 🎯 Caratteristiche Principali
+
+- **React 19** con TypeScript per type safety
+- **Vite** per build veloce e HMR
+- **Design Responsive** per mobile, tablet e desktop
+- **Componenti UI** modulari e riutilizzabili
+- **ESLint + Prettier** per code quality
+
+## 📱 Responsive Web Design
+
+### Breakpoints Implementati:
+- **Mobile**: `max-width: 480px`
+- **Tablet**: `max-width: 768px` 
+- **Desktop**: `min-width: 1024px`
+
+### Componenti Responsive:
+- **Header**: Adattivo con menu mobile
+- **Navigation**: Collapsible su dispositivi piccoli
+- **Dashboard**: Layout flessibile per tutti gli schermi
+- **Catalogo**: Grid responsive per specie
+- **Identificatore**: Form ottimizzato per touch
+
+## 🚀 Script Disponibili
+
+- `npm run dev` - Server sviluppo con HMR
+- `npm run build` - Build produzione ottimizzato
+- `npm run preview` - Preview build produzione
+- `npm run quality` - Controllo qualità codice
+- `npm run test` - Testing con Jest
 
 Currently, two official plugins are available:
 
