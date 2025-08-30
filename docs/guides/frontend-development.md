@@ -429,6 +429,53 @@ npx vite-bundle-analyzer dist/stats.html
 - **Husky** - Pre-commit hooks
 - **Lint-staged** - Controllo file modificati
 
+## 🔥 HMR (Hot Module Replacement) - Metodologia di Sviluppo
+
+### **🎯 Cos'è HMR:**
+**HMR = Hot Module Replacement** - Sostituzione "calda" dei moduli senza ricaricare l'intera pagina, mantenendo lo stato dell'applicazione.
+
+### **⚡ Come Funziona:**
+1. **Monitoraggio File**: Vite monitora tutti i file sorgente in tempo reale
+2. **Sostituzione Intelligente**: Sostituisce solo i moduli modificati
+3. **Aggiornamento Browser**: Nessun refresh completo, solo parti cambiate
+
+### **⚠️ Quando HMR Può Bloccarsi:**
+- **Troppe modifiche simultanee** (10+ file contemporaneamente)
+- **Salvataggi rapidi e multipli** senza pause
+- **Errori di sintassi multipli** non risolti
+- **Problemi di configurazione** o dipendenze
+- **Limiti del browser** (memoria, tab pesanti)
+
+### **🛠️ Metodo di Sviluppo Raccomandato:**
+
+#### **✅ Best Practices:**
+1. **Modifiche Graduali**: 1-2 file alla volta
+2. **Salvataggi Controllati**: Salva dopo ogni modifica significativa
+3. **Test Incrementali**: Verifica HMR prima di continuare
+4. **Gestione Errori**: Risolvi errori prima di nuove modifiche
+
+#### **🔄 Workflow Sicuro:**
+```
+Modifica piccola → Salva → Verifica HMR → Modifica successiva → Salva → Verifica HMR
+```
+
+#### **🚨 Se HMR Si Blocca:**
+1. **Riavvio Server**: `Ctrl+C` → `npm run dev`
+2. **Refresh Browser**: `Ctrl+Shift+R` (hard refresh)
+3. **Riavvio Completo**: Entrambi i server (backend + frontend)
+
+### **📊 Monitoraggio Performance:**
+- **Chiudi tab** non necessarie
+- **Riavvia browser** se rallenta
+- **Pulisci cache** se necessario
+- **Controlla console** per errori
+
+### **🎯 Vantaggi del Metodo:**
+- **Sviluppo veloce** e fluido
+- **HMR stabile** e affidabile
+- **Debugging efficiente** in tempo reale
+- **Mantenimento stato** durante sviluppo
+
 ---
 
 **Prossimo**: [Backend Integration Guide](../api/endpoints.md)
