@@ -41,10 +41,10 @@ Applicazione web per l'identificazione e catalogazione delle specie ittiche, con
 - `docs/reference/configuration.md`: Riferimento per le configurazioni
 
 ## Stato Attuale
-- Fase: Backend base funzionante + Riorganizzazione struttura progetto
+- Fase: Backend funzionante + Frontend setup tecnico completato + Sviluppo web app in corso
 - Ultimo aggiornamento: 2025-08-30
-- Prossimi step: Completamento riorganizzazione documentazione + Modelli database e API CRUD
-- Struttura progetto: Riorganizzata con cartella `docs/` per documentazione
+- Prossimi step: Sviluppo interfaccia utente frontend + Integrazione backend-frontend
+- Struttura progetto: Riorganizzata con cartella `docs/` per documentazione + Frontend React configurato
 
 ## Note Importanti
 - Dominio già acquistato su Porkbun
@@ -80,11 +80,17 @@ Applicazione web per l'identificazione e catalogazione delle specie ittiche, con
 - ✅ Primo commit completato con backend funzionante
 
 ## Endpoint Funzionanti
-- **Server**: http://127.0.0.1:8080
+- **Backend Server**: http://127.0.0.1:8080
 - **Health Live**: http://127.0.0.1:8080/health/live → `{"status":"live"}`
 - **Health Ready**: http://127.0.0.1:8080/health/ready → `{"status":"ready"}`
 - **Documentazione Swagger**: http://127.0.0.1:8080/docs
 - **Documentazione ReDoc**: http://127.0.0.1:8080/redoc
+
+## Frontend Funzionante
+- **Frontend Server**: http://127.0.0.1:5173
+- **Status**: Setup tecnico completato, server attivo
+- **Hot Reload**: Funzionante
+- **Template**: Vite + React di default (da sviluppare)
 
 ## Comando Server
 ```bash
@@ -99,4 +105,7 @@ uvicorn app.main:app --host 127.0.0.1 --port 8080
 - ✅ Struttura progetto riorganizzata con cartella `docs/`
 - ✅ File `app/` spostato dalla cartella `backend/` alla root
 - ✅ Import aggiornati per nuova struttura
+- ✅ Frontend React + TypeScript + Vite configurato
+- ✅ Server frontend attivo su porta 5173
+- ✅ Hot reload frontend funzionante
 - ❌ Porta 8000 bloccata (usare 8080) 

@@ -41,12 +41,15 @@ PESCAWEBAPP/
 │   ├── api/                                # Documentazione API
 │   │   └── README.md                       # Overview API
 │   ├── architecture/                       # Documentazione architettura
+│   │   ├── frontend.md                     # Architettura frontend React
 │   │   ├── overview.md                     # Overview architettura
 │   │   └── TECHNICAL_STACK.md              # Stack tecnologico dettagliato
 │   ├── business_strategy/                  # Strategia business
 │   │   └── README.md                       # Overview strategia
 │   ├── guides/                             # Guide operative
-│   │   └── README.md                       # Guide setup e utilizzo
+│   │   ├── frontend-development.md         # Guida sviluppo frontend
+│   │   ├── frontend-code-style.md          # Guida stile codice frontend
+│   │   └── setup.md                        # Guide setup e utilizzo
 │   ├── project/                            # Documenti progetto
 │   │   ├── PROJECT_CONTEXT.md              # Contesto e obiettivi
 │   │   ├── PROJECT_SPECIFICATIONS.md       # Specifiche funzionali
@@ -56,6 +59,26 @@ PESCAWEBAPP/
 │   ├── reference/                          # Riferimenti tecnici
 │   │   └── README.md                       # Configurazioni e riferimenti
 │   └── README.md                           # Overview documentazione
+├── frontend/                               # Frontend React + TypeScript
+│   ├── node_modules/                       # Dipendenze Node.js
+│   ├── public/                             # File statici pubblici
+│   ├── src/                                # Codice sorgente React
+│   │   ├── assets/                         # Risorse (immagini, icone)
+│   │   ├── App.tsx                         # Componente principale
+│   │   ├── App.css                         # Stili componente principale
+│   │   ├── index.css                       # Stili globali
+│   │   ├── main.tsx                        # Entry point React
+│   │   └── vite-env.d.ts                   # Tipi Vite
+│   ├── .gitignore                          # File ignorati da Git (frontend)
+│   ├── eslint.config.js                    # Configurazione ESLint
+│   ├── index.html                          # Template HTML principale
+│   ├── package-lock.json                   # Lock file dipendenze
+│   ├── package.json                        # Dipendenze e script npm
+│   ├── README.md                           # Documentazione frontend
+│   ├── tsconfig.app.json                   # Configurazione TS per app
+│   ├── tsconfig.json                       # Configurazione TypeScript
+│   ├── tsconfig.node.json                  # Configurazione TS per Node
+│   └── vite.config.ts                      # Configurazione Vite
 ├── LimiteRaggiuntoChat/                    # Tracking progresso progetto
 │   ├── PROGRESS_TRACKING_GUIDE.md          # Guida tracking
 │   ├── PROJECT_MILESTONES.md               # Milestone completate
