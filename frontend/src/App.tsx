@@ -1,34 +1,71 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
+// Componenti principali della Pesca WebApp
+import Header from './components/Header'
+import Navigation from './components/Navigation'
+import Dashboard from './components/Dashboard'
+import FishCatalog from './components/FishCatalog'
+import FishIdentifier from './components/FishIdentifier'
+import DatabaseManager from './components/DatabaseManager'
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentPage, setCurrentPage] = useState('dashboard')
+  const [isLoading, setIsLoading] = useState(false)
+
+  // Gestione navigazione tra pagine
+  const handlePageChange = (page: string) => {
+    setIsLoading(true)
+    setCurrentPage(page)
+    // Simula caricamento per transizioni fluide
+    setTimeout(() => setIsLoading(false), 300)
+  }
+
+  // Renderizza la pagina corrente
+  const renderCurrentPage = () => {
+    switch (currentPage) {
+      case 'dashboard':
+        return <Dashboard />
+      case 'catalog':
+        return <FishCatalog />
+      case 'identifier':
+        return <FishIdentifier />
+      case 'database':
+        return <DatabaseManager />
+      default:
+        return <Dashboard />
+    }
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount(count => count + 1)}>
-          Pesca WebApp
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="pesca-webapp">
+      {/* Header principale con logo e titolo */}
+      <Header />
+      
+      {/* Navigazione principale */}
+      <Navigation 
+        currentPage={currentPage} 
+        onPageChange={handlePageChange} 
+      />
+      
+      {/* Contenuto principale con loading state */}
+      <main className="main-content">
+        {isLoading ? (
+          <div className="loading-spinner">
+            <div className="spinner"></div>
+            <p>Caricamento...</p>
+          </div>
+        ) : (
+          renderCurrentPage()
+        )}
+      </main>
+      
+      {/* Footer con informazioni */}
+      <footer className="app-footer">
+        <p>&copy; 2025 Pesca WebApp - Identificazione e Gestione Pesci</p>
+        <p>Integrato con FishBase Database</p>
+      </footer>
+    </div>
   )
 }
 

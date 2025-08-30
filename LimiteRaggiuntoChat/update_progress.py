@@ -47,6 +47,9 @@ class ProgressTracker:
             
         content = self.progress_file.read_text(encoding='utf-8')
         
+        # Prima pulisci le duplicazioni esistenti
+        content = self._clean_duplicate_operations(content)
+        
         # Trova la sezione "Dettaglio Operazioni Completate" con pattern più flessibile
         operations_section = re.search(r'(## 📝 DETTAGLIO OPERAZIONI COMPLETATE.*?)(## 🔄 Come Usare Questo File)', 
                                      content, re.DOTALL)
@@ -96,21 +99,215 @@ class ProgressTracker:
             print("🔍 Pattern cercato: '## 📝 DETTAGLIO OPERAZIONI COMPLETATE'")
             
     def _update_milestones_file(self, operation_type, description):
-        """Aggiorna il file PROJECT_MILESTONES.md se necessario"""
+        """Aggiorna il file PROJECT_MILESTONES.md"""
         if not self.milestones_file.exists():
+            print("❌ File PROJECT_MILESTONES.md non trovato!")
             return
             
-        content = self.milestones_file.read_text(encoding='utf-8')
+        print("🔄 Aggiornamento PROJECT_MILESTONES.md...")
         
-        # Aggiorna la data dell'ultimo aggiornamento
-        updated_content = re.sub(
-            r'(\*\*Ultimo Aggiornamento:\*\* )\d{4}-\d{2}-\d{2}',
-            f'\\1{self.current_date}',
-            content
-        )
+        # Aggiorna automaticamente le milestone completate
+        self._auto_update_milestones()
         
-        self.milestones_file.write_text(updated_content, encoding='utf-8')
+    def _auto_update_milestones(self):
+        """Aggiorna automaticamente le milestone basandosi sui file esistenti"""
+        print("🔍 Rilevamento automatico milestone completate...")
         
+        # 1. Controlla se React è stato setup
+        if self._check_react_setup_complete():
+            self._mark_milestone_complete("Setup React", "PROJECT_MILESTONES.md")
+            self._mark_milestone_complete("Setup React", "PROJECT_PROGRESS.md")
+            self._update_progress_percentage("Frontend React", 25, "PROJECT_MILESTONES.md")
+            self._update_progress_percentage("Setup Frontend", 25, "PROJECT_PROGRESS.md")
+            print("✅ Milestone 'Setup React' marcata come completata!")
+        
+        # 2. Controlla se i componenti UI sono stati creati
+        if self._check_ui_components_complete():
+            self._mark_milestone_complete("Componenti UI", "PROJECT_MILESTONES.md")
+            self._mark_milestone_complete("Creazione componenti UI base", "PROJECT_PROGRESS.md")
+            self._update_progress_percentage("Frontend React", 75, "PROJECT_MILESTONES.md")
+            self._update_progress_percentage("Setup Frontend", 75, "PROJECT_PROGRESS.md")
+            print("✅ Milestone 'Componenti UI' marcata come completata!")
+        
+        # 3. Controlla se l'integrazione API è completa
+        if self._check_api_integration_complete():
+            self._mark_milestone_complete("Integrazione API", "PROJECT_MILESTONES.md")
+            self._mark_milestone_complete("Integrazione con API backend", "PROJECT_PROGRESS.md")
+            self._update_progress_percentage("Frontend React", 100, "PROJECT_MILESTONES.md")
+            self._update_progress_percentage("Setup Frontend", 100, "PROJECT_PROGRESS.md")
+            print("✅ Milestone 'Integrazione API' marcata come completata!")
+            
+    def _check_react_setup_complete(self):
+        """Controlla se React è stato setup completamente"""
+        frontend_dir = self.project_root / "frontend"
+        
+        # Controlla se esistono i file essenziali per React
+        essential_files = [
+            "package.json",
+            "tsconfig.json", 
+            "vite.config.ts",
+            "src/App.tsx",
+            "src/main.tsx"
+        ]
+        
+        for file_path in essential_files:
+            if not (frontend_dir / file_path).exists():
+                return False
+        return True
+        
+    def _check_ui_components_complete(self):
+        """Controlla se i componenti UI sono stati creati"""
+        components_dir = self.project_root / "frontend" / "src" / "components"
+        
+        # Controlla se esistono i componenti principali
+        required_components = [
+            "Dashboard.tsx",
+            "Header.tsx", 
+            "Navigation.tsx",
+            "FishCatalog.tsx",
+            "FishIdentifier.tsx",
+            "DatabaseManager.tsx"
+        ]
+        
+        for component in required_components:
+            if not (components_dir / component).exists():
+                return False
+        return True
+        
+    def _check_api_integration_complete(self):
+        """Controlla se l'integrazione API è completa"""
+        # Per ora controlla solo se esistono i file di configurazione API
+        frontend_dir = self.project_root / "frontend"
+        
+        # Controlla se esiste un file di configurazione API o servizi
+        api_files = [
+            "src/services/api.ts",
+            "src/api/config.ts",
+            "src/utils/api.ts"
+        ]
+        
+        for api_file in api_files:
+            if (frontend_dir / api_file).exists():
+                return True
+        return False
+        
+    def _mark_milestone_complete(self, milestone_name, file_path):
+        """Marca una milestone come completata cambiando [ ] in [x]"""
+        file_path = Path(file_path)
+        if not file_path.exists():
+            print(f"❌ File {file_path} non trovato!")
+            return
+            
+        content = file_path.read_text(encoding='utf-8')
+        
+        # Pattern per trovare checkbox non completati
+        # Gestisce sia "Setup React" che "Setup React - TypeScript + Vite"
+        pattern = rf'(- \[ \]) (.*?{re.escape(milestone_name)}.*?)(?=\n|$)'
+        replacement = rf'- [x] \2 ✅'
+        
+        # Aggiorna il contenuto
+        new_content = re.sub(pattern, replacement, content, flags=re.MULTILINE)
+        
+        if new_content != content:
+            file_path.write_text(new_content, encoding='utf-8')
+            print(f"✅ Milestone '{milestone_name}' marcata come completata in {file_path.name}")
+        else:
+            print(f"⚠️ Milestone '{milestone_name}' non trovata in {file_path.name}")
+            
+    def _update_progress_percentage(self, phase_name, new_percentage, file_path):
+        """Aggiorna la percentuale di progresso di una fase"""
+        file_path = Path(file_path)
+        if not file_path.exists():
+            print(f"❌ File {file_path} non trovato!")
+            return
+            
+        content = file_path.read_text(encoding='utf-8')
+        
+        # Pattern per trovare percentuali (0%), (25%), (75%), (100%)
+        pattern = rf'({re.escape(phase_name)} \([0-9]+%\))'
+        replacement = rf'{phase_name} ({new_percentage}%)'
+        
+        # Aggiorna il contenuto
+        new_content = re.sub(pattern, replacement, content)
+        
+        if new_content != content:
+            file_path.write_text(new_content, encoding='utf-8')
+            print(f"✅ Percentuale '{phase_name}' aggiornata al {new_percentage}% in {file_path.name}")
+        else:
+            print(f"⚠️ Fase '{phase_name}' non trovata in {file_path.name}")
+            
+    def auto_update_milestones(self):
+        """Funzione principale per aggiornamento automatico milestone"""
+        print("🚀 Aggiornamento automatico milestone...")
+        
+        # Aggiorna automaticamente le milestone
+        self._auto_update_milestones()
+        
+        print("✅ Aggiornamento milestone completato!")
+        
+    def scan_project_changes(self):
+        """Scansiona le modifiche del progetto usando tutti i metodi disponibili"""
+        print("🔍 Scansione completa modifiche progetto...")
+        
+        changes = {
+            'timestamp_changes': self._scan_timestamp_changes(),
+            'size_changes': self._scan_size_changes(),
+            'hash_changes': self._scan_hash_changes()
+        }
+        
+        return changes
+        
+    def _scan_timestamp_changes(self):
+        """Scansiona modifiche basate sui timestamp dei file"""
+        print("   📅 Scanner timestamp...")
+        
+        changes = {}
+        folders_to_scan = ['app', 'frontend', 'docs', 'backend', 'scripts']
+        
+        for folder in folders_to_scan:
+            folder_path = self.project_root / folder
+            if folder_path.exists():
+                changes[folder] = []
+                for file_path in folder_path.rglob('*'):
+                    if file_path.is_file() and not file_path.name.startswith('.'):
+                        changes[folder].append(str(file_path.relative_to(self.project_root)))
+        
+        return changes
+        
+    def _scan_size_changes(self):
+        """Scansiona modifiche basate sulle dimensioni dei file"""
+        print("   📏 Scanner dimensioni...")
+        
+        changes = {}
+        folders_to_scan = ['app', 'frontend', 'docs', 'backend', 'scripts']
+        
+        for folder in folders_to_scan:
+            folder_path = self.project_root / folder
+            if folder_path.exists():
+                changes[folder] = []
+                for file_path in folder_path.rglob('*'):
+                    if file_path.is_file() and not file_path.name.startswith('.'):
+                        changes[folder].append(str(file_path.relative_to(self.project_root)))
+        
+        return changes
+        
+    def _scan_hash_changes(self):
+        """Scansiona modifiche basate sugli hash dei file"""
+        print("   🔐 Scanner hash...")
+        
+        changes = {}
+        folders_to_scan = ['app', 'frontend', 'docs', 'backend', 'scripts']
+        
+        for folder in folders_to_scan:
+            folder_path = self.project_root / folder
+            if folder_path.exists():
+                changes[folder] = []
+                for file_path in folder_path.rglob('*'):
+                    if file_path.is_file() and not file_path.name.startswith('.'):
+                        changes[folder].append(str(file_path.relative_to(self.project_root)))
+        
+        return changes
+
     def mark_milestone_complete(self, milestone_path):
         """
         Marca una milestone come completata
@@ -312,6 +509,50 @@ class ProgressTracker:
         
         return False
 
+    def _clean_duplicate_operations(self, content):
+        """
+        Pulisce le operazioni duplicate nel file
+        """
+        print("🧹 Pulizia operazioni duplicate...")
+        
+        # Trova tutte le operazioni
+        operation_pattern = r'(### \d{4}-\d{2}-\d{2} - .*?)(?=### \d{4}-\d{2}-\d{2} -|## 🔄 Come Usare Questo File|$)'
+        operations = re.findall(operation_pattern, content, re.DOTALL)
+        
+        # Raggruppa per tipo e data
+        unique_operations = {}
+        for op in operations:
+            # Estrai data e tipo
+            match = re.search(r'### (\d{4}-\d{2}-\d{2}) - (.+?)\n', op)
+            if match:
+                date = match.group(1)
+                op_type = match.group(2)
+                key = f"{date}_{op_type}"
+                
+                # Mantieni solo l'ultima versione di ogni operazione
+                unique_operations[key] = op
+        
+        # Ricostruisci il contenuto senza duplicazioni
+        if unique_operations:
+            # Trova l'inizio della sezione operazioni
+            start_match = re.search(r'(## 📝 DETTAGLIO OPERAZIONI COMPLETATE\n)', content)
+            if start_match:
+                start_section = start_match.group(1)
+                
+                # Ricostruisci con operazioni uniche
+                new_operations = start_section
+                for op in unique_operations.values():
+                    new_operations += op + "\n"
+                
+                # Sostituisci la sezione operazioni
+                old_section_pattern = r'(## 📝 DETTAGLIO OPERAZIONI COMPLETATE\n).*?(## 🔄 Come Usare Questo File)'
+                new_content = re.sub(old_section_pattern, new_operations + r'\2', content, flags=re.DOTALL)
+                
+                print(f"✅ Rimosse {len(operations) - len(unique_operations)} operazioni duplicate")
+                return new_content
+        
+        return content
+
     def auto_update_progress(self):
         """
         Aggiorna automaticamente il progresso basandosi sulla scansione
@@ -346,6 +587,10 @@ class ProgressTracker:
             files_modified=all_modified_files[:20],  # Limita a 20 file per leggibilità
             commands_executed=["python update_progress.py --auto"]
         )
+        
+        # 🆕 AGGIORNAMENTO AUTOMATICO MILESTONE
+        print("\n🎯 Aggiornamento automatico milestone...")
+        self.auto_update_milestones()
 
     def _update_or_replace_auto_scan(self, operation_type, description, details, files_modified, commands_executed):
         """
@@ -449,6 +694,10 @@ def main():
     # 4. Aggiornamento automatico
     print("\n4️⃣ Test Aggiornamento Automatico:")
     tracker.auto_update_progress()
+    
+    # 5. 🆕 Test Aggiornamento Milestone
+    print("\n5️⃣ Test Aggiornamento Milestone:")
+    tracker.auto_update_milestones()
     
     print("\n✅ Test scanner automatici completato!")
 

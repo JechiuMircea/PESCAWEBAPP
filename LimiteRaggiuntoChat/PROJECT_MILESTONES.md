@@ -38,9 +38,9 @@
 
 ## 🔄 MILESTONE IN CORSO
 
-### 🎯 MILESTONE 4: Frontend React (0%)
-- [ ] **Setup React** - TypeScript + Vite
-- [ ] **Componenti UI** - Gestione specie
+### 🎯 MILESTONE 4: Frontend React (75%)
+- [x] **Setup React** - TypeScript + Vite ✅
+- [x] **Componenti UI** - Gestione specie ✅
 - [ ] **Integrazione API** - Backend connection
 - [ ] **Testing Frontend** - Validazione UI
 - **Data Inizio**: 2025-08-29
