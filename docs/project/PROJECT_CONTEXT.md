@@ -31,15 +31,20 @@ Applicazione web per l'identificazione e catalogazione delle specie ittiche, con
 4. Autenticazione utenti
 
 ## File di Documentazione
-- `PROJECT_SPECIFICATIONS.md`: Requisiti e specifiche di business
-- `TECHNICAL_STACK.md`: Stack tecnologico dettagliato e strategia database
-- `PROJECT_TIMELINE.md`: Timeline di sviluppo
-- `TIMELINE_COMPARISON.md`: Analisi comparativa timeline
+- `docs/project/PROJECT_SPECIFICATIONS.md`: Requisiti e specifiche di business
+- `docs/technical/TECHNICAL_STACK.md`: Stack tecnologico dettagliato e strategia database
+- `docs/project/PROJECT_TIMELINE.md`: Timeline di sviluppo
+- `docs/project/TIMELINE_COMPARISON.md`: Analisi comparativa timeline
+- `docs/architecture/overview.md`: Overview dell'architettura del sistema
+- `docs/api/endpoints.md`: Documentazione degli endpoint API
+- `docs/guides/setup.md`: Guida per il setup dell'ambiente
+- `docs/reference/configuration.md`: Riferimento per le configurazioni
 
 ## Stato Attuale
-- Fase: Backend base funzionante
-- Ultimo aggiornamento: [Data]
-- Prossimi step: Modelli database e API CRUD
+- Fase: Backend base funzionante + Riorganizzazione struttura progetto
+- Ultimo aggiornamento: 2025-08-30
+- Prossimi step: Completamento riorganizzazione documentazione + Modelli database e API CRUD
+- Struttura progetto: Riorganizzata con cartella `docs/` per documentazione
 
 ## Note Importanti
 - Dominio già acquistato su Porkbun
@@ -83,7 +88,7 @@ Applicazione web per l'identificazione e catalogazione delle specie ittiche, con
 
 ## Comando Server
 ```bash
-uvicorn backend.app.main:app --host 127.0.0.1 --port 8080
+uvicorn app.main:app --host 127.0.0.1 --port 8080
 ```
 
 ## Problemi Risolti
@@ -91,4 +96,7 @@ uvicorn backend.app.main:app --host 127.0.0.1 --port 8080
 - ✅ Server Uvicorn funzionante su porta 8080
 - ✅ Endpoint health check operativi
 - ✅ Documentazione automatica generata
+- ✅ Struttura progetto riorganizzata con cartella `docs/`
+- ✅ File `app/` spostato dalla cartella `backend/` alla root
+- ✅ Import aggiornati per nuova struttura
 - ❌ Porta 8000 bloccata (usare 8080) 
