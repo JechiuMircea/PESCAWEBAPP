@@ -97,3 +97,9 @@ Utente → Frontend → API → Database → Risposta
 ---
 
 **Prossimo**: [Backend Architecture](backend.md)
+
+---
+
+## ⚠️ **NOTA IMPORTANTE - GITHUB**
+
+**Branch `main` è protetta su GitHub** - Le modifiche devono essere fatte attraverso Pull Request da branch feature.

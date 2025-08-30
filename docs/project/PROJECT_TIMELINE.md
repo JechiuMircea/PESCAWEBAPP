@@ -152,4 +152,10 @@
 - Fine Fase 4: Frontend React completo + UI funzionante
 - Fine Fase 5: ML AWS Rekognition reale + Ottimizzazione
 - Fine Fase 6: Deployment produzione + Applicazione live
-- Fase 7: Manutenzione e miglioramenti continui 
+- Fase 7: Manutenzione e miglioramenti continui
+
+---
+
+## ⚠️ **NOTA IMPORTANTE - GITHUB**
+
+**Branch `main` è protetta su GitHub** - Le modifiche devono essere fatte attraverso Pull Request da branch feature. 
